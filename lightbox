@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+</head>
+<body>
+  <div class="header">
+  <h1>CODEGORILLA SMOELENBOEK</h1>
+
+</div>
+  <div class="navbar">
+    <a class="active" href="http://localhost:8080/sb/homepage"><i class="fa fa-fw fa-home"></i> Home</a>
+    <a href="http://localhost:8080/sb/team"><i class="fa fa-fw fa-user"></i>Team</a>
+  </div>
+<div class="bg"></div>
+<h2>Filterable Table</h2>
+<p>Type something in the input field to search the table for first names, last names or emails:</p>
+<input id="myInput" type="text" placeholder="Search..">
+<br><br>
+<table>
+  <thead>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Email</th>
+  </tr>
+  </thead>
+  <tbody id="myTable">
+  <tr>
+    <td>Evert</td>
+    <td>de Vries</td>
+    <td>evert@junior-codegorilla.nl</td>
+    <td><a class="button" href="#popup2">Over Evert</a></td>
+  </tr>
+  <tr>
+    <td>Drohn</td>
+    <td>Ramdat Tewari</td>
+    <td>drohn@junior-codegorilla.nl</td>
+    <td><a class="button" href="#popup3">Over Drohn</a></td>
+  </tr>
+  <tr>
+    <td>Bashir</td>
+    <td>Panjshiri</td>
+    <td>bashir@junior-codegorilla.nl</td>
+    <td><a class="button" href="#popup1">Over Bashir</a></td>
+  </tr>
+  <tr>
+    <td>Samir</td>
+    <td>Hartlief</td>
+    <td>samir@junior-codegorilla.nl</td>
+    <td><a class="button" href="#popup4">Over Samir</a></td>
+  </tr>
+  </tbody>
+</table>
+<div class="box">
+	<a class="button" href="#popup1">Over Bashir</a>
+</div>
+<div id="popup1" class="overlay">
+	<div class="popup">
+		<h2>Junior Webdeveloper</h2>
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+    <img src="/sb/images/bashir.jpg" alt="Bashir" style="width:100%">
+    <div class="text">GET IN CONTACT</div>
+		</div>
+	</div>
+</div>
+<div class="box">
+	<a class="button" href="#popup2">Over Evert</a>
+</div>
+<div id="popup2" class="overlay">
+	<div class="popup">
+		<h2>Junior Webdeveloper</h2>
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+    <img src="/sb/images/evert.jpg" alt="Evert" style="width:100%">
+    <div class="text">GET IN CONTACT</div>
+		</div>
+	</div>
+</div>
+<div class="box">
+	<a class="button" href="#popup3">Over Drohn</a>
+</div>
+<div id="popup3" class="overlay">
+	<div class="popup">
+		<h2>Junior Webdeveloper</h2>
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+    <img src="/sb/images/drohn.jpg" alt="Drohn" style="width:100%">
+    <div class="text">GET IN CONTACT</div>
+		</div>
+	</div>
+</div>
+<div class="box">
+	<a class="button" href="#popup4">Over Samir</a>
+</div>
+<div id="popup4" class="overlay">
+	<div class="popup">
+		<h2>Junior Webdeveloper</h2>
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+    <img src="/sb/images/samir.jpg" alt="Samir" style="width:100%">
+    <div class="text">GET IN CONTACT</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
